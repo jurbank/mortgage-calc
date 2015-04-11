@@ -1,3 +1,5 @@
+// 'use strict';
+
 var sliderAmount = $('.slider-amount');
 var sliderIntrest = $('.slider-intrest');
 var sliderTerm = $('.slider-term');
@@ -27,6 +29,12 @@ sliderAmount.noUiSlider({
     })     
 });
 
+sliderAmount.on({
+	slide: function() {
+		
+	}
+});
+
 sliderIntrest.noUiSlider({
     start: [ 2 ],
     range: {
@@ -46,11 +54,12 @@ sliderIntrest.noUiSlider({
 sliderTerm.noUiSlider({
     start: [ 10 ],
     range: {
-    'min': [ 10, 10 ],
-    '33%': [ 15, 10 ],
-    '66%': [ 20, 10 ],
-    // '50%': [20, 10],
-    'max': 30
+    'min': [10, 10],
+    '20%': [ 15, 10 ],
+    '40%': [ 20, 10 ],
+    '60%': [ 25, 10 ],
+    '80%': [ 30, 10 ],
+    'max': 40
 		},
     format: wNumb({
         // decimals: 2,
@@ -115,5 +124,5 @@ unFormatTerm = wNumb({
 });
 
 console.log(unFormatAmount.from( sliderAmount.val() ));
-console.log(unFormatAmount.from( sliderIntrest.val() ));
-console.log(unFormatAmount.from( sliderTerm.val() ));
+console.log(unFormatIntrest.from( sliderIntrest.val() ));
+console.log(unFormatTerm.from( sliderTerm.val() ));

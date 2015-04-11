@@ -19,10 +19,11 @@ angular.module('mortgageCalcApp')
 			return payment;
 		}
 
-		$scope.calcMortgage = function calcMortgage() {
+		$scope.calcMortgage = function calcMortgage(a) {
 			// console.log($scope.principal);
 			// console.log('submitted');
 			var pay = findPayment($scope.principal, $scope.intrest / 12, $scope.term * 12);
-			console.log(pay);
+			console.log($scope.principal);
+			console.log(a);
 		}
   });
