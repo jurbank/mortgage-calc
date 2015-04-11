@@ -3,9 +3,9 @@
 $cinza: #525252;
 $main-color: #fff;
 
-$teal: #3ABFCA;
+$teal: #46CA93;
 $green: #3ACA47;
-$bg-color: $green;
+$bg-color: $teal;
 
 $overlay: rgba(255, 255, 255, 0.2);
 
@@ -29,11 +29,11 @@ body {
   font-weight: lighter;
   color: $main-color;
   // background: $cinza;
-  background: linear-gradient($teal, $bg-color);
+  // background: linear-gradient($teal, $bg-color);
 }
 
 .top {
-  background: $overlay;
+  // background: $overlay;
   button {
     padding: 1em 3em;
     background: rgba(255, 255, 255, 0.5);
@@ -88,13 +88,13 @@ body {
     position: relative;
     top: 5em;
     margin: 0 auto;
-    border-top: 20px solid $overlay;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
+    // border-top: 20px solid $overlay;
+    // border-left: 15px solid transparent;
+    // border-right: 15px solid transparent;
   }
   label {
     text-transform: uppercase;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.5em;
     display: block;    
     // color: lighten($cinza, 20%);
   }
@@ -107,6 +107,7 @@ body {
     font-size: 1.5em;    
     letter-spacing: .02em;
     height: 2.4em;
+    margin-top: .5em;
     // color: $cinza;
   }
   .button {
@@ -158,4 +159,23 @@ body {
     font-size: 2em;
 
   }
+}
+
+/* NOUI ------------------------------*/
+.noUi-target {
+  border: none;
+  box-shadow: inset 0 1px 1px #F0F0F0,0 6px 8px -5px rgba(0, 0, 0, 0.37);
+}
+.range-slider {
+  height: 14px;
+}
+.noUi-horizontal .noUi-handle {
+  top: -7px;
+  border: none;
+  background-color: #9CE4C6;
+  box-shadow: inset 0 1px 1px #F0F0F0, 0 6px 8px -5px rgba(0, 0, 0, 0.37);
+  &:before,
+  &:after {
+    background: none;
+  } 
 }
