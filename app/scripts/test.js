@@ -46,9 +46,10 @@ sliderIntrest.noUiSlider({
 sliderTerm.noUiSlider({
     start: [ 10 ],
     range: {
-    'min': [ 10, 1000 ],
-    // '33%': [ 1000, 1000 ],
-    // '66%': [ 5000, 1000 ],
+    'min': [ 10, 10 ],
+    '33%': [ 15, 10 ],
+    '66%': [ 20, 10 ],
+    // '50%': [20, 10],
     'max': 30
 		},
     format: wNumb({
@@ -56,7 +57,7 @@ sliderTerm.noUiSlider({
         // mark: '.',
         thousand: ',',
         postfix: ' Years'
-    })     
+    })
 });
 
 // sliderAmount.noUiSlider_pips({
@@ -90,3 +91,29 @@ inputTerm.change(function(){
     sliderAmount.val(value);
     guard = false;
 });
+
+
+
+// UNFORMAT FOR USAGE
+unFormatAmount = wNumb({
+  decimals: 0,
+  mark: '.',
+  thousand: ',',
+  prefix: '$'
+});
+
+unFormatIntrest = wNumb({
+  decimals: 2,
+  mark: '.',
+  thousand: ',',
+  postfix: '%'
+});
+
+unFormatTerm = wNumb({
+    thousand: ',',
+    postfix: ' Years'
+});
+
+console.log(unFormatAmount.from( sliderAmount.val() ));
+console.log(unFormatAmount.from( sliderIntrest.val() ));
+console.log(unFormatAmount.from( sliderTerm.val() ));
