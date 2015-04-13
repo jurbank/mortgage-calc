@@ -44,11 +44,6 @@ body {
   }
 }
 
-.intro {  
-  @include respond-to(max-width, 640px) {
-    margin: 0 20px !important;
-  } 
-}
 .intro,
 .breakdown,
 .calculator {
@@ -61,8 +56,12 @@ body {
 /* INTRO -----------------------------------*/
 .intro {
   padding: 3em 0 1em;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3);  
-  margin-bottom: 2.5em;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);  
+  margin-bottom: 1.5em;
+  @include respond-to(max-width, 640px) {
+    margin: 0 20px !important;
+    padding-top: 1em;
+  }
   h1 {
     font-weight: lighter;
     margin: 0;  
@@ -76,10 +75,13 @@ body {
 
 /* CALCULATOR ------------------------------*/
 .calculator {
-  max-width: 1000px;
-  padding-bottom: 4em;
-  margin-bottom: 4em;
+  max-width: 1200px;
+  padding-bottom: 2em;
+  // margin-bottom: 4em;
   background: none;
+  @include respond-to(max-width, 640px) {
+    padding-bottom: 0;
+  }  
   &:after {
     content: "";
     display: block;
@@ -153,6 +155,9 @@ body {
   font-size: 1.5em;
   text-transform: uppercase;
   margin-bottom: 3em;
+  @include respond-to(max-width, 640px) {
+    font-size: 1.2em;
+  }  
   span {
     display: block;
     font-weight: bold;

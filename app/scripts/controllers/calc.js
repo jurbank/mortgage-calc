@@ -65,6 +65,9 @@ sliderAmount.noUiSlider({
     })     
 });
 
+
+// $apply on init??
+
 sliderIntrest.noUiSlider({
     start: [ 2 ],
     range: {
@@ -170,14 +173,14 @@ var unFormatTerm = wNumb({
 	sliders.on({
 		slide: function() {
 			// UNFORMAT FOR USAGE
-		   $scope.principal = unFormatAmount.from( sliderAmount.val() );
-		   $scope.intrest = unFormatIntrest.from( sliderIntrest.val() );
+		   $scope.principal = unFormatAmount.from(sliderAmount.val());
+		   $scope.intrest = unFormatIntrest.from(sliderIntrest.val());
 
-		   $scope.breakdown = $scope.principal * $scope.intrest;
+		   $scope.breakdown = $scope.principal;
 
 		   // REFORMAT
-		   $scope.principal = unFormatAmount.to( sliderAmount.val() );
-		   $scope.intrest = unFormatIntrest.to( sliderIntrest.val() );
+		   // $scope.principal = unFormatAmount.to(sliderAmount.val());
+		   // $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
 
 		   $scope.breakdownFormat = unFormatAmount.to( $scope.breakdown );
 		   $scope.$apply();
