@@ -62,8 +62,10 @@
           <div class="calculator-field">
             <label for="">Mortgage amount</label>
             <div class="range-slider slider-amount"></div>  
-            <input type="text" class="input-amount"> 
+            <input type="text" class="input-amount" ng-model="principal" ng-model-options="{ updateOn: 'change' }"> 
             <!-- <input type="text" placeholder="$250,000" ng-model="principal">  -->
+            {{principal}}
+
           </div>
         </div>
         <div class="col-1-3 calculator-intrest">
@@ -92,7 +94,7 @@
     <div class="breakdown">
       <div class="h2 breakdown-text">
         Your monthly payment:
-        <!-- <span class="breakdown-price">{{test}}</span> -->
+        <span class="breakdown-price">$402</span>
       </div>
     </div>
   </form>
