@@ -12,7 +12,9 @@ angular.module('mortgageCalcApp')
 
   	$scope.principal = 0;
   	$scope.intrest = 0;
-  	$scope.term = 0;  	
+  	$scope.term = 0;
+  	
+  	$scope.breakdown = 0;
 
 		function findPayment(principal, intrest, term) {
 			var payment = (principal * intrest) / (1 - Math.pow(1 + intrest, -term));
@@ -32,6 +34,8 @@ angular.module('mortgageCalcApp')
 
 // 'use strict';
 
+
+var sliders = $('.range-slider');
 var sliderAmount = $('.slider-amount');
 var sliderIntrest = $('.slider-intrest');
 var sliderTerm = $('.slider-term');
@@ -59,14 +63,6 @@ sliderAmount.noUiSlider({
         thousand: ',',
         prefix: '$'
     })     
-});
-
-sliderAmount.on({
-	slide: function() {
-	   $scope.principal = sliderAmount.val();
-	   console.log($scope.principal);
-	   $scope.$apply();
-	}
 });
 
 sliderIntrest.noUiSlider({
@@ -103,6 +99,7 @@ sliderTerm.noUiSlider({
     })
 });
 
+
 // sliderAmount.noUiSlider_pips({
 //     mode: 'positions',
 //     values: [0,33,66,100],
@@ -138,32 +135,54 @@ inputTerm.change(function(){
 
 
 // UNFORMAT FOR USAGE
-// unFormatAmount = wNumb({
-//   decimals: 0,
-//   mark: '.',
-//   thousand: ',',
-//   prefix: '$'
+var unFormatAmount = wNumb({
+  decimals: 0,
+  mark: '.',
+  thousand: ',',
+  prefix: '$'
+});
+
+var unFormatIntrest = wNumb({
+  decimals: 2,
+  mark: '.',
+  thousand: ',',
+  postfix: '%'
+});
+
+var unFormatTerm = wNumb({
+    thousand: ',',
+    postfix: ' Years'
+});
+
+
+// sliderAmount.on({
+// 	slide: function() {
+// 	   $scope.principal = sliderAmount.val();
+// 	   // $scope.breakdown = ($scope.principal * $scope.intrest) / $scope.term;
+// 	   $scope.intrest = sliderIntrest.val();
+// 	   $scope.breakdown = $scope.intrest;
+// 	   // console.log($scope.principal);
+// 	   $scope.$apply();
+// 	}
 // });
 
-// unFormatIntrest = wNumb({
-//   decimals: 2,
-//   mark: '.',
-//   thousand: ',',
-//   postfix: '%'
-// });
 
-// unFormatTerm = wNumb({
-//     thousand: ',',
-//     postfix: ' Years'
-// });
+	sliders.on({
+		slide: function() {
+			// UNFORMAT FOR USAGE
+		   $scope.principal = unFormatAmount.from( sliderAmount.val() );
+		   $scope.intrest = unFormatIntrest.from( sliderIntrest.val() );
 
-// console.log(unFormatAmount.from( sliderAmount.val() ));
-// console.log(unFormatIntrest.from( sliderIntrest.val() ));
-// console.log(unFormatTerm.from( sliderTerm.val() ));
+		   $scope.breakdown = $scope.principal * $scope.intrest;
 
+		   // REFORMAT
+		   $scope.principal = unFormatAmount.to( sliderAmount.val() );
+		   $scope.intrest = unFormatIntrest.to( sliderIntrest.val() );
 
-
-
+		   $scope.breakdownFormat = unFormatAmount.to( $scope.breakdown );
+		   $scope.$apply();
+		}
+	});
 
 
 
