@@ -10,12 +10,6 @@
 angular.module('mortgageCalcApp')
   .controller('CalcCtrl', function ($scope) {
 
-  	$scope.principal = 0;
-  	$scope.intrest = 0;
-  	$scope.term = 0;
-  	
-  	$scope.breakdown = 0;
-
 		function findPayment(principal, intrest, term) {
 			var payment = (principal * intrest) / (1 - Math.pow(1 + intrest, -term));
 			return payment;
@@ -103,6 +97,7 @@ sliderTerm.noUiSlider({
 });
 
 
+
 // sliderAmount.noUiSlider_pips({
 //     mode: 'positions',
 //     values: [0,33,66,100],
@@ -170,23 +165,57 @@ var unFormatTerm = wNumb({
 // });
 
 
+var r, numPayments, r2, monthlyPayment;
+
 	sliders.on({
 		slide: function() {
 			// UNFORMAT FOR USAGE
 		   $scope.principal = unFormatAmount.from(sliderAmount.val());
 		   $scope.intrest = unFormatIntrest.from(sliderIntrest.val());
+           $scope.term = unFormatTerm.from(sliderTerm.val());
 
-		   $scope.breakdown = $scope.principal;
+            r = $scope.intrest/(100*12);
+            numPayments = $scope.term*12;
+            r2 = Math.pow(r+1, numPayments);
+            monthlyPayment = $scope.principal * ((r * r2 )/(r2-1));           
+
+		   $scope.breakdown = monthlyPayment;
 
 		   // REFORMAT
-		   // $scope.principal = unFormatAmount.to(sliderAmount.val());
-		   // $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
+		   $scope.principal = unFormatAmount.to(sliderAmount.val());
+		   $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
 
 		   $scope.breakdownFormat = unFormatAmount.to( $scope.breakdown );
 		   $scope.$apply();
 		}
 	});
 
+
+    $scope.principal = sliderAmount.val();
+    $scope.intrest =  sliderIntrest.val();
+    $scope.term = sliderTerm.val();
+    $scope.breakdown = 0;
+
+
+    // var p = 200000;
+    // var r = (6.5/12)/100
+    // var l = 30*12
+
+
+    // var term = 30;
+    // var principal = 2000000;
+    // var intrest = 6.5;
+
+    // var r = intrest/(100*12);
+    // var numPayments = term*12;
+    // var r2 = Math.pow(r+1, numPayments);
+    // var monthlyPayment = principal * ((r * r2 )/(r2-1));
+
+//http://math.stackexchange.com/questions/664029/whats-the-math-formula-that-is-used-to-calculate-the-monthly-payment-in-this-mo
+
+
+
+    // ((6.5 / 100 / 12) * 200000) / (1 - ((1 + (6.5 / 100 / 12)) ^ (-30 * 12)))
 
 
 
