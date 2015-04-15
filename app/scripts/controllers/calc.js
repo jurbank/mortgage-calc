@@ -88,6 +88,9 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();
         guard = true;
         sliderAmount.val(value);
+        console.log(value);
+        // $scope.principal = value;
+        $scope.$apply();
         guard = false;
     });
 
@@ -95,6 +98,7 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();
         guard = true;
         sliderIntrest.val(value);
+
         guard = false;
     });
 
@@ -102,6 +106,7 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();
         guard = true;
         sliderTerm.val(value);
+
         guard = false;
     });
 
@@ -153,8 +158,7 @@ angular.module('mortgageCalcApp')
        // REFORMAT
        $scope.principal = unFormatAmount.to(sliderAmount.val());
        $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
-       $scope.breakdown = unFormatBreakdown.to($scope.breakdown);
-       $scope.$apply();
+       $scope.breakdown = unFormatBreakdown.to($scope.breakdown);       
     }
 
     calcPayment();
@@ -164,6 +168,7 @@ angular.module('mortgageCalcApp')
     sliders.on({
     	slide: function() {
             calcPayment();
+            $scope.$apply();
     	}
     });
 
