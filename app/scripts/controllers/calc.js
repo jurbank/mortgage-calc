@@ -19,10 +19,6 @@ angular.module('mortgageCalcApp')
     var inputIntrest = $('.input-intrest'), guard = false;
     var inputTerm = $('.input-term'), guard = false;
 
-    function setSalesValue(value){
-        if ( guard ) return;
-        $(this).val(value);
-    }
 
     sliderAmount.noUiSlider({
         start: [ 100000 ],
@@ -37,7 +33,6 @@ angular.module('mortgageCalcApp')
             prefix: '$'
         })     
     });
-
 
     // $apply on init??
 
@@ -84,9 +79,10 @@ angular.module('mortgageCalcApp')
     //     stepped: true
     // });
 
-    $('.slider-amount').Link("lower").to(inputAmount, setSalesValue);
-    $('.slider-intrest').Link("lower").to(inputIntrest, setSalesValue);
-    $('.slider-term').Link("lower").to(inputTerm, setSalesValue);
+    $('.slider-amount').Link("lower").to(inputAmount);
+    $('.slider-intrest').Link("lower").to(inputIntrest);
+    $('.slider-term').Link("lower").to(inputTerm);
+
 
     inputAmount.change(function(){
         var value = $(this).val();
@@ -98,14 +94,14 @@ angular.module('mortgageCalcApp')
     inputIntrest.change(function(){
         var value = $(this).val();
         guard = true;
-        sliderAmount.val(value);
+        sliderIntrest.val(value);
         guard = false;
     });
 
     inputTerm.change(function(){
         var value = $(this).val();
         guard = true;
-        sliderAmount.val(value);
+        sliderTerm.val(value);
         guard = false;
     });
 
@@ -113,27 +109,27 @@ angular.module('mortgageCalcApp')
 
     // UNFORMAT FOR USAGE
     var unFormatAmount = wNumb({
-      decimals: 0,
-      mark: '.',
-      thousand: ',',
-      prefix: '$'
+      // decimals: 0,
+      // mark: '.',
+      // thousand: ',',
+      // prefix: '$'
     });
 
     var unFormatIntrest = wNumb({
-      decimals: 2,
-      mark: '.',
-      thousand: ',',
-      postfix: '%'
+      // decimals: 2,
+      // mark: '.',
+      // thousand: ',',
+      // postfix: '%'
     });
 
     var unFormatTerm = wNumb({
-        thousand: ',',
-        postfix: ' Years'
+        // thousand: ',',
+        // postfix: ' Years'
     });
 
     var unFormatBreakdown = wNumb({
-      decimals: 2,
-      mark: '.',
+      decimals: 0,
+      mark: '',
       thousand: ',',
       prefix: '$'
     });
