@@ -10,11 +10,7 @@
  */
 angular
   .module('mortgageCalcApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
     'ngRoute',
-    'ngSanitize',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
