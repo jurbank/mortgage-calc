@@ -1,5 +1,5 @@
-@import "grid.scss";
-
+/* VARS 
+-------------------------------------- */
 $cinza: #525252;
 $main-color: #fff;
 
@@ -9,17 +9,50 @@ $bg-color: $teal;
 
 $overlay: rgba(255, 255, 255, 0.2);
 
+$pad: 20px;
+
+/* MIXINS 
+-------------------------------------- */
 @mixin respond-to($type, $query) {
   @media ($type: $query) {
     @content;
   }
 }
 
+/* BASE LAYOUT 
+-------------------------------------- */
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.container {
+  padding: $pad 0 $pad $pad;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.input-group {
+  width: 33.33%;
+  float: left;
+  margin-bottom: 1em;
+  padding-right: $pad;
+  .container &:last-of-type {
+    padding-right: $pad;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .input-group {
+    float: none;
+    width: 100%;
+  }
+}
+
 html {
   background: $bg-color;
 }
@@ -28,18 +61,14 @@ body {
   font-size: 20px;
   font-weight: lighter;
   color: $main-color;
-  // background: $cinza;
-  // background: linear-gradient($teal, $bg-color);
 }
 
 .top {
-  // background: $overlay;
   button {
     padding: 1em 3em;
     background: rgba(255, 255, 255, 0.5);
     border: 2px solid #fff;
     text-transform: uppercase;
-    /* font-weight: bold; */
     margin: 0 auto;    
   }
 }
@@ -49,11 +78,11 @@ body {
 .calculator {
   max-width: 600px;
   margin: 0 auto;
-  // padding: 0 20px;
 }
 
 
-/* INTRO -----------------------------------*/
+/* INTRO 
+-------------------------------------- */
 .intro {
   padding: 3em 0 1em;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);  
@@ -67,13 +96,13 @@ body {
     margin: 0;  
   }
   p {
-    // color: $main-color;
     opacity: 0.7;
   }
 }
 
 
-/* CALCULATOR ------------------------------*/
+/* CALCULATOR
+-------------------------------------- */
 .calculator {
   max-width: 1200px;
   padding-bottom: 2em;
@@ -90,15 +119,11 @@ body {
     position: relative;
     top: 5em;
     margin: 0 auto;
-    // border-top: 20px solid $overlay;
-    // border-left: 15px solid transparent;
-    // border-right: 15px solid transparent;
   }
   label {
     text-transform: uppercase;
     margin-bottom: 0.5em;
-    display: block;    
-    // color: lighten($cinza, 20%);
+    display: block;
   }
   input {
     background: rgba(255, 255, 255, 0.25);
@@ -110,7 +135,6 @@ body {
     letter-spacing: .02em;
     height: 2.4em;
     margin-top: .5em;
-    // color: $cinza;
   }
   .button {
     text-transform: uppercase;
@@ -127,7 +151,6 @@ body {
 }
 
 .calculator-field {
-  // border-bottom: 3px solid rgba(255, 255, 255, 0.3);
   position: relative;
 }
 
@@ -148,7 +171,8 @@ body {
 }
 
 
-/* BREAKDOWN ------------------------------*/
+/* BREAKDOWN 
+-------------------------------------- */
 .breakdown {
   text-align: center;
   color: #fff;
@@ -166,7 +190,8 @@ body {
   }
 }
 
-/* NOUI ------------------------------*/
+/* NOUI PLUGIN 
+-------------------------------------- */
 .noUi-target {
   border: none;
   box-shadow: inset 0 1px 1px #F0F0F0,0 6px 8px -5px rgba(0, 0, 0, 0.37);
