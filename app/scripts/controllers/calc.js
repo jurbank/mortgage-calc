@@ -75,7 +75,7 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();        
         guard = true;
         sliderAmount.val(value);
-        // calcPayment();
+
         guard = false;
       });
 
@@ -83,7 +83,7 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();
         guard = true;
         sliderIntrest.val(value);
-        // calcPayment();
+        calcPayment();
         guard = false;
       });
 
@@ -91,7 +91,7 @@ angular.module('mortgageCalcApp')
         var value = $(this).val();
         guard = true;
         sliderTerm.val(value);
-        // calcPayment();
+        calcPayment();
         guard = false;
       });
 
@@ -128,21 +128,24 @@ angular.module('mortgageCalcApp')
       var format = function() {
           $scope.principal = unFormatAmount.to(sliderAmount.val());
           $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
+          $scope.term = unFormatTerm.to(sliderTerm.val());
           $scope.breakdown = unFormatBreakdown.to($scope.breakdown);
       };
 
+      // issue shows false (from formatting)
       var calcPayment = function() {
+        unformat();
 
-          unformat();
+        r = $scope.intrest / (100 * 12);
+        numPayments = $scope.term * 12;
+        r2 = Math.pow(r + 1, numPayments);
+        monthlyPayment = $scope.principal * ((r * r2) / (r2 - 1));
 
-          r = $scope.intrest / (100 * 12);
-          numPayments = $scope.term * 12;
-          r2 = Math.pow(r + 1, numPayments);
-          monthlyPayment = $scope.principal * ((r * r2) / (r2 - 1));
+        $scope.breakdown = monthlyPayment;
 
-          $scope.breakdown = monthlyPayment;
+        console.log($scope.principal);
 
-          format();
+        format();
       }
 
       calcPayment();
@@ -154,24 +157,7 @@ angular.module('mortgageCalcApp')
           }
       });
 
-      $scope.principal = sliderAmount.val();
-      $scope.intrest = sliderIntrest.val();
-      $scope.term = sliderTerm.val();
-      $scope.breakdown = $scope.breakdown;
-
       // ======================================
       // TESTING
       // ======================================
-
-     //  sliderAmount.on({
-     //    slide: function() {
-     //      $scope.testPrince = sliderAmount.val();    
-     //    }
-     //  })
-
-     // sliderIntrest.on({
-     //    slide: function() {
-     //      $scope.testIntrest = sliderIntrest.val();
-     //    }
-     //  })
 });
