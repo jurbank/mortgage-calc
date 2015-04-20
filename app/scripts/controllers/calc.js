@@ -19,7 +19,7 @@ angular.module('mortgageCalcApp')
       // ======================================
 
       sliderAmount.noUiSlider({
-          start: [10000],
+          start: [100000],
           range: {
             'min': [ 10000, 10 ],
             'max': [ 1000000 ]
@@ -33,7 +33,7 @@ angular.module('mortgageCalcApp')
       });
 
       sliderIntrest.noUiSlider({
-          start: [4.5],
+          start: [4.0],
           range: {
             'min': [0],
             'max': [20, 1000]
@@ -50,11 +50,10 @@ angular.module('mortgageCalcApp')
           start: [30],
           range: {
             'min': [10, 10],
-            '20%': [15, 10],
-            '40%': [20, 10],
-            '60%': [25, 10],
-            '80%': [30, 10],
-            'max': 40
+            '25%': [15, 10],
+            '50%': [20, 10],
+            '75%': [25, 10],
+            'max': 30
           },
           format: wNumb({
               postfix: ' Years'

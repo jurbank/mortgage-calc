@@ -58,7 +58,8 @@ html {
 }
 body {
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 1.6em;
   font-weight: lighter;
   color: $main-color;
 }
@@ -75,9 +76,13 @@ body {
 
 .intro,
 .breakdown,
-.calculator {
+.calculator,
+.group {
   max-width: 600px;
   margin: 0 auto;
+}
+.breakdown {
+  line-height: 1.8em;
 }
 
 
@@ -96,7 +101,7 @@ body {
     margin: 0;  
   }
   p {
-    opacity: 0.7;
+    opacity: 0.9;
   }
 }
 
@@ -135,6 +140,7 @@ body {
     letter-spacing: .02em;
     height: 2.4em;
     margin-top: .5em;
+    width: 100%;
   }
   .button {
     text-transform: uppercase;
@@ -143,7 +149,7 @@ body {
     color: #4a4a4a;
     font-size: .9em;
     float: right;
-    padding: 1.3em 1em;
+    padding: 1.1em 1em;
     position: absolute;
     bottom: 0;
     right: 0;  
@@ -190,6 +196,24 @@ body {
   }
 }
 
+
+
+/* FOOTER 
+-------------------------------------- */
+footer {
+  background: darken($teal, 5%);
+  padding: 1em 0;
+  text-align: center;
+  font-size: .9em;
+  opacity: 0.7;
+  aside {
+    p { font-style: italic; }
+  }
+  .follow {
+    color: #fff;
+  }
+}
+
 /* NOUI PLUGIN 
 -------------------------------------- */
 .noUi-target {
@@ -197,10 +221,10 @@ body {
   box-shadow: inset 0 1px 1px #F0F0F0,0 6px 8px -5px rgba(0, 0, 0, 0.37);
 }
 .range-slider {
-  height: 14px;
+  height: 11px;
 }
 .noUi-horizontal .noUi-handle {
-  top: -7px;
+  top: -8px;
   border: none;
   background-color: #9CE4C6;
   box-shadow: inset 0 1px 1px #F0F0F0, 0 6px 8px -5px rgba(0, 0, 0, 0.37);

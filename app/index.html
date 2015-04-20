@@ -2,12 +2,12 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Online Mortgage Calculator</title>
+    <title>Mortgage Calculator</title>
     
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon-180x180-precomposed.png">
 
-    <meta name="description" content="">
+    <meta name="description" content="Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be.">
     <meta name="viewport" content="width=device-width">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -19,7 +19,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
   </head>
   <body ng-app="mortgageCalcApp">
     <!--[if lt IE 9]>
@@ -31,7 +31,7 @@
         <div class="top">
           <div class="intro">
             <h1>Mortgage calculator</h1>
-            <p>Let’s crunch some numbers to see what you monthly mortgage payment will be using the online mortgage calculator.</p>
+            <p>Purchasing a house is one of the most important financial desicisions you will make. Understanding how the amount (principal), interest and mortgage term, work together to calculate your monthly payment, will give you the visibility you need to be confident in your next home purchase. Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be.</p>
           </div>
           
           <div class="container calculator">
@@ -44,10 +44,10 @@
             </div>
             <div class="input-group calculator-intrest">
               <div class="calculator-field">
-                <label for="">Intrest rate</label>
+                <label for="">Interest rate</label>
                 <div class="range-slider slider-intrest"></div>  
                 <input type="text" class="input-intrest" disabled="disable">
-                <a href="#" class="button">Today's rates</a>
+                <a href="http://www.marketwatch.com/tools/pftools/" target="_blank" class="button">Today's rates</a>
 
               </div>
             </div>
@@ -69,6 +69,15 @@
         </div>
       </form>
     </div>
+
+    <footer>
+      <div class="group container">
+        <aside>
+          <p>*Please note, this is still in beta. While the calculation is very helpful, it does not include property taxes, insurance or other variables which could factor into your monthly payment. I hope to add some of these soon.</p>
+        </aside>
+        <p>Follow me: <a href="" class="follow">jurbank</a></p>
+      </div>
+    </footer>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
