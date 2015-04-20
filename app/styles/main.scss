@@ -48,8 +48,8 @@ $pad: 20px;
 
 @media screen and (max-width: 500px) {
   .input-group {
-    float: none;
-    width: 100%;
+    float: none !important;
+    width: 100% !important;
   }
 }
 
@@ -98,7 +98,8 @@ body {
   }
   h1 {
     font-weight: lighter;
-    margin: 0;  
+    margin: 0;
+    line-height: 1.3em;
   }
   p {
     opacity: 0.9;
@@ -110,7 +111,7 @@ body {
 -------------------------------------- */
 .calculator {
   max-width: 1200px;
-  padding-bottom: 2em;
+  padding-bottom: 0;
   // margin-bottom: 4em;
   background: none;
   @include respond-to(max-width, 640px) {
@@ -152,8 +153,23 @@ body {
     padding: 1.1em 1em;
     position: absolute;
     bottom: 0;
-    right: 0;  
+    right: 0;
+    @include respond-to(max-width, 835px) {
+      font-size: .8em;
+      padding: 1.25em 0.7em;
+    }
   }
+  @include respond-to(max-width, 735px) {
+    .calculator-amount {
+      float: none;
+      width: auto;
+    }
+    .calculator-intrest,
+    .calculator-term {
+      float: left;
+      width: 50%;
+    }
+  }  
 }
 
 .calculator-field {
@@ -184,10 +200,13 @@ body {
   color: #fff;
   font-size: 1.5em;
   text-transform: uppercase;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   @include respond-to(max-width, 640px) {
     font-size: 1.2em;
-  }  
+  }
+  .breakdown-text {
+    line-height: 2em;
+  }
   span {
     display: block;
     font-weight: bold;
@@ -205,12 +224,23 @@ footer {
   padding: 1em 0;
   text-align: center;
   font-size: .9em;
-  opacity: 0.7;
+  .container {
+    padding: $pad;
+  }
   aside {
-    p { font-style: italic; }
+    p { 
+      font-style: italic;
+      opacity: 0.7;
+    }
   }
   .follow {
-    color: #fff;
+    font-size: .9em;
+    span {
+      opacity: 0.7;
+    }
+    a {
+      color: #fff;
+    }
   }
 }
 
