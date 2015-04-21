@@ -142,8 +142,6 @@ angular.module('mortgageCalcApp')
 
         $scope.breakdown = monthlyPayment;
 
-        console.log($scope.principal);
-
         format();
       }
 
