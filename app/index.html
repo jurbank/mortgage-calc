@@ -30,7 +30,7 @@
       ga('create', 'UA-62018976-1', 'auto');
       ga('send', 'pageview');
 
-    </script>    
+    </script>
   </head>
   <body ng-app="mortgageCalcApp">
     <!--[if lt IE 9]>
@@ -75,8 +75,10 @@
         <div class="breakdown">
           <div class="h2 breakdown-text">
             Your monthly payment:
-            <span class="breakdown-price">{{breakdown}}</span>
+            <span class="breakdown-price">{{breakdown}}</span>            
           </div>
+          <hr>
+          <p class="totalpaid-text">OR <strong>{{totalPaid}}</strong> at {{termText}} years</p>
         </div>
       </form>
     </div>

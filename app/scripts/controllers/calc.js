@@ -109,14 +109,14 @@ angular.module('mortgageCalcApp')
       var unFormatAmount = wNumb({});
       var unFormatIntrest = wNumb({});
       var unFormatTerm = wNumb({});
-      var unFormatBreakdown = wNumb({
+      var unFormatThousands = wNumb({
           decimals: 0,
           mark: '',
           thousand: ',',
           prefix: '$'
-      });
+      });   
 
-      var r, numPayments, r2, monthlyPayment;
+      var r, numPayments, r2, monthlyPayment, totalPaid;
 
       var unformat = function() {
           $scope.principal = unFormatAmount.from(sliderAmount.val());
@@ -128,7 +128,8 @@ angular.module('mortgageCalcApp')
           $scope.principal = unFormatAmount.to(sliderAmount.val());
           $scope.intrest = unFormatIntrest.to(sliderIntrest.val());
           $scope.term = unFormatTerm.to(sliderTerm.val());
-          $scope.breakdown = unFormatBreakdown.to($scope.breakdown);
+          $scope.breakdown = unFormatThousands.to($scope.breakdown);
+          $scope.totalPaid = unFormatThousands.to($scope.totalPaid);
       };
 
       // issue shows false (from formatting)
@@ -141,11 +142,16 @@ angular.module('mortgageCalcApp')
         monthlyPayment = $scope.principal * ((r * r2) / (r2 - 1));
 
         $scope.breakdown = monthlyPayment;
+        $scope.totalPaid = (($scope.breakdown * 12) * $scope.term);
+        $scope.termText = $scope.term;
 
         format();
       }
 
       calcPayment();
+      
+      console.log(totalPaid);
+
 
       sliders.on({
           slide: function() {

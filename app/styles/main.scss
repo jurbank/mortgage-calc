@@ -208,16 +208,30 @@ body {
     font-size: 1.2em;
   }
   .breakdown-text {
-    line-height: 2em;
+    line-height: 2.2em;
   }
-  span {
+  .breakdown-price {
     display: block;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.5em;
 
   }
+  hr {
+    width: 10em;
+    border-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 1em;    
+  }
+  .totalpaid-text {
+    font-size: .7em;
+    margin-top: .3em;
+    color: rgba(255,255,255,0.7);
+    strong {
+      font-size: 1.5em;
+      color: rgba(255,255,255,1);    
+    }
+  }  
 }
-
 
 
 /* FOOTER 
