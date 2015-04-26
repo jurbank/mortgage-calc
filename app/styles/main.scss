@@ -85,6 +85,43 @@ body {
   line-height: 1.8em;
 }
 
+/* NAV 
+-------------------------------------- */
+#nav {
+  background: darken($teal, 6%);
+  ul {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      display: inline-block;
+      &:first-child {
+        margin-right: -.212em;
+      }
+      &.active a {
+        background: $teal;
+      }
+      a {
+        padding: 1em 1.5em;
+        display: block;
+        background: #f00;
+        color: #fff;
+        text-decoration: none;
+        background: darken($teal, 6%);
+        @include respond-to(max-width, 400px) {
+          font-size: .9em;
+          padding: 1em 1em;
+        }
+        @include respond-to(max-width, 390px) {
+          font-size: .85em;
+          padding: 1em 1em;
+        }        
+      }
+    }
+  }
+}
+
 
 /* INTRO 
 -------------------------------------- */
@@ -196,6 +233,27 @@ body {
 }
 
 
+/* NEWS
+-------------------------------------- */
+.news {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      width: 10%;
+      margin: 1%;
+      padding: 1%;
+      float: left;
+      background: #fff;
+      color: #333;
+      border-radius: 5px;
+      border: 1px solid #f00;
+    }
+  }
+}
+
+
 /* BREAKDOWN 
 -------------------------------------- */
 .breakdown {
@@ -237,7 +295,7 @@ body {
 /* FOOTER 
 -------------------------------------- */
 footer {
-  background: darken($teal, 5%);
+  background: darken($teal, 6%);
   padding: 1em 0;
   text-align: center;
   font-size: .9em;

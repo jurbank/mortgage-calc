@@ -150,7 +150,6 @@ angular.module('mortgageCalcApp')
 
       calcPayment();
       
-      console.log(totalPaid);
 
 
       sliders.on({
@@ -159,8 +158,4 @@ angular.module('mortgageCalcApp')
               $scope.$apply();
           }
       });
-
-      // ======================================
-      // TESTING
-      // ======================================
 });

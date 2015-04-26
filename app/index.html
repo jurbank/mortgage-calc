@@ -37,12 +37,21 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="calc" ng-controller="CalcCtrl">
+    <nav id="nav">
+      <ul>
+        <li class="active"><a href="#/">Mortgage Calculator</a></li>
+        <li><a href="#/news">Mortgage News</a></li>
+      </ul>
+    </nav>
+
+    <div ng-view=""></div>    
+
+<!--     <div class="calc" ng-controller="CalcCtrl">
       <form action="">
         <div class="top">
           <div class="intro">
             <h1>Mortgage calculator</h1>
-            <p>Purchasing a house is one of the most important financial decisions you will make. Understanding how the amount (principal), interest and mortgage term, work together to calculate your monthly payment, will give you the visibility you need to be confident in your next home purchase. Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be.</p>
+            <p>Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be. Adjust the sliders below to see how much you will pay on your mortgage.</p>            
           </div>
           
           <div class="container calculator">
@@ -81,7 +90,36 @@
           <p class="totalpaid-text">OR <strong>{{totalPaid}}</strong> at {{termText}} years</p>
         </div>
       </form>
-    </div>
+    </div> -->
+<!-- 
+    <div class="news" ng-controller="CalcCtrl">
+      <ul class="container">
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+        <li>Real Estate Trends – Marlborough, Massachusetts</li>
+      </ul>
+    </div> -->
+
+
+
+<!--                <p>Purchasing a house is one of the most important financial decisions you will make. Understanding how the amount (principal), interest and mortgage term, work together to calculate your monthly payment, will give you the visibility you need to be confident in your next home purchase.</p> -->
 
     <footer>
       <div class="group container">
@@ -104,6 +142,21 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/nouislider/distribute/jquery.nouislider.all.min.js"></script>
+
+    <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
+    <script src="bower_components/get-style-property/get-style-property.js"></script>
+    <script src="bower_components/get-size/get-size.js"></script>
+    <script src="bower_components/eventie/eventie.js"></script>
+    <script src="bower_components/doc-ready/doc-ready.js"></script>
+    <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+    <script src="bower_components/matches-selector/matches-selector.js"></script>
+    <script src="bower_components/outlayer/item.js"></script>
+    <script src="bower_components/outlayer/outlayer.js"></script>
+    <script src="bower_components/masonry/masonry.js"></script>
+    <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+    <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+    
+    <script src="bower_components/twitter-fetcher/js/twitterFetcher.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -111,6 +164,7 @@
     
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/calc.js"></script>
+    <script src="scripts/controllers/news.js"></script>
     <!-- endbuild -->
 </body>
 </html>
