@@ -4,7 +4,6 @@ angular
   .module('mortgageCalcApp', [
     'ngRoute',
     // 'ngTouch',
-    'wu.masonry'
   ])
   .config(function ($routeProvider) {
     $routeProvider

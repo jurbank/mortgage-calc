@@ -235,20 +235,67 @@ body {
 
 /* NEWS
 -------------------------------------- */
-.news {
+#news {
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     li {
-      width: 10%;
+      width: 31.33%;
       margin: 1%;
-      padding: 1%;
       float: left;
       background: #fff;
       color: #333;
       border-radius: 5px;
-      border: 1px solid #f00;
+      height: 10em;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.23);
+      .tweet {
+        position: relative;
+        float: left;
+        width: 75%;
+        margin: 0;
+        padding-left: 5%;        
+        top: 50%;
+        transform: translateY(-50%);
+        a {
+          display: block;
+          color: #74AEE0;
+        }
+      }
+      .timePosted {
+        display: block;
+        float: right;
+        background: #E4E4E4;
+        height: 100%;
+        margin: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #444;
+        width: 25%;
+        position: relative;
+        a {
+          display: block;
+          color: #949494;
+          text-decoration: none;
+          font-weight: bold;
+          text-align: center;
+          margin: 0 1em;
+          position: relative;
+          transform: translateY(-50%);
+          top: 50%;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: .85em;
+          letter-spacing: 1px;
+          line-height: 1.4em;          
+        }
+      }
+      @include respond-to(max-width, 950px) {
+        width: 48%;
+      }
+      @include respond-to(max-width, 480px) {
+        width: 98%;
+      }      
     }
   }
 }

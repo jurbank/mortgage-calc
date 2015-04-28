@@ -61,48 +61,6 @@ angular.module('mortgageCalcApp')
       });
 
       // ======================================
-      // INPUT 
-      // ======================================
-
-      function specificVal(value) {
-        if (guard) return;
-        $(this).val(value);
-
-      }
-
-      inputAmount.change(function() {
-        var value = $(this).val();        
-        guard = true;
-        sliderAmount.val(value);
-
-        guard = false;
-      });
-
-      inputIntrest.change(function() {
-        var value = $(this).val();
-        guard = true;
-        sliderIntrest.val(value);
-        calcPayment();
-        guard = false;
-      });
-
-      inputTerm.change(function() {
-        var value = $(this).val();
-        guard = true;
-        sliderTerm.val(value);
-        calcPayment();
-        guard = false;
-      });
-
-      // ======================================
-      // LINK SLIDER TO INPUT 
-      // ======================================
-
-      sliderAmount.Link("lower").to(inputAmount, specificVal);
-      sliderIntrest.Link("lower").to(inputIntrest, specificVal);
-      sliderTerm.Link("lower").to(inputTerm, specificVal);
-
-      // ======================================
       // UNFORMAT
       // ======================================
 
@@ -132,7 +90,6 @@ angular.module('mortgageCalcApp')
           $scope.totalPaid = unFormatThousands.to($scope.totalPaid);
       };
 
-      // issue shows false (from formatting)
       var calcPayment = function() {
         unformat();
 
@@ -146,11 +103,46 @@ angular.module('mortgageCalcApp')
         $scope.termText = $scope.term;
 
         format();
-      }
+      }  
+
+      // ======================================
+      // INPUT 
+      // ======================================
+
+
+      inputAmount.change(function() {
+        var value = $(this).val();
+        sliderAmount.val(value);
+        $scope.principal = value;
+        calcPayment();
+        $scope.$apply();
+      });
+
+      inputIntrest.change(function() {
+        var value = $(this).val();
+        sliderIntrest.val(value);
+        $scope.intrest = value;
+        calcPayment();
+        $scope.$apply();
+      });
+
+      inputTerm.change(function() {
+        var value = $(this).val();
+        sliderTerm.val(value);
+        $scope.term = value;
+        calcPayment();
+        $scope.$apply();
+      });
+
+      // ======================================
+      // LINK SLIDER TO INPUT 
+      // ======================================
+
+      sliderAmount.Link("lower").to(inputAmount);
+      sliderIntrest.Link("lower").to(inputIntrest);
+      sliderTerm.Link("lower").to(inputTerm);
 
       calcPayment();
-      
-
 
       sliders.on({
           slide: function() {

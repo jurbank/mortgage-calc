@@ -6,9 +6,9 @@ angular.module('mortgageCalcApp')
     var config5 = {
       "id": '592122115807129601',
       "domId": '',
-      "maxTweets": 100,
+      "maxTweets": 20,
       "enableLinks": true,
-      "showUser": true,
+      "showUser": false,
       "showTime": true,
       "dateFunction": '',
       "showRetweet": false,
@@ -17,45 +17,20 @@ angular.module('mortgageCalcApp')
     };
 
     function handleTweets(tweets){
+      console.log(tweets.length);
         var x = tweets.length;
         var n = 0;
         var element = document.getElementById('twitter-feed');
-        var html = '<ul>';
+        var html = '<ul class="container">';
         while(n < x) {
           html += '<li>' + tweets[n] + '</li>';
           n++;
         }
         html += '</ul>';
         element.innerHTML = html;
+
     }
 
     twitterFetcher.fetch(config5);
 
-
-    function genBrick() {
-        var height = ~~(Math.random() * 500) + 100;
-        var id = ~~(Math.random() * 10000);
-        return {
-            src: 'http://lorempixel.com/g/280/' + height + '/?' + id
-        };
-    };
-
-    $scope.bricks = [
-        genBrick(),
-        genBrick(),
-        genBrick(),
-        genBrick(),
-        genBrick()
-    ];
-
-    $scope.add = function add() {
-        $scope.bricks.push(genBrick());
-    };
-
-    $scope.remove = function remove() {
-        $scope.bricks.splice(
-            ~~(Math.random() * $scope.bricks.length),
-            1
-        )
-    };		
-	});
+});
