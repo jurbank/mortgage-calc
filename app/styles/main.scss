@@ -338,6 +338,18 @@ body {
   }  
 }
 
+/* SECONDARY 
+-------------------------------------- */
+.secondary {
+  background-color: #36bc84;
+  padding: 2em 0 0;
+  p {
+    opacity: 0.9;
+    @include respond-to(max-width, 640px) {
+        margin: 0 20px !important;
+    }    
+  }
+}
 
 /* FOOTER 
 -------------------------------------- */
