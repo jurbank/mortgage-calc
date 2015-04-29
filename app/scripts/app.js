@@ -11,11 +11,11 @@ angular
         templateUrl: 'views/calculator.html',
         controller: 'CalcCtrl'
       })
-      .when('/news', {
-        templateUrl: 'views/news.html',
-        controller: 'NewsCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+$(window).load(function(){
+  $('.preloader-container').removeClass('js--show');
+});

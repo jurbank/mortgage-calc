@@ -298,6 +298,16 @@ body {
       }      
     }
   }
+  .group {
+    font-size: .9em;
+    @include respond-to(max-width, 480px) {
+      padding: 1em 1em;
+    }    
+    a {
+      display: inline;
+      color: #fff;
+    }    
+  }
 }
 
 
@@ -406,4 +416,59 @@ footer {
   &:after {
     background: none;
   } 
+}
+
+
+/* PRELOADER
+-------------------------------------- */
+html {
+  height: 100%;
+}
+.preloader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;  
+  background: $teal;
+  opacity: 0;
+  transition: all .3s;
+  &.js--show {
+    opacity: 1;
+    z-index: 999;
+  }
+}
+
+
+.preloader {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border: 2px solid #fff;
+
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }
