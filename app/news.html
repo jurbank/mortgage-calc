@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="apple-touch-icon-180x180-precomposed.png">
 
-    <meta name="description" content="Here is a simple online mortgage calculator to help you see what your monthly payment could be.">
+    <meta name="description" content="Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be.">
     <meta name="viewport" content="width=device-width">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -32,75 +32,27 @@
     </script>
   </head>
   <body ng-app="mortgageCalcApp">
-
-    <div class="preloader-container js--show">
-      <div class="preloader"></div>
-    </div>
     <!--[if lt IE 9]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-<!--     <nav id="nav" ng-controller="NavCtrl">
-      <ul>
-        <li ng-class="{active: isActive('/')}" ><a ng-href="#/">Mortgage Calculator</a></li>
-        <li ng-class="{active: isActive('/news')}"><a ng-href="#/news">Mortgage News</a></li>
-        <li ng-class="{active: isActive('/intrest')}"><a ng-href="#/rates">Intrest Trends</a></li>
-      </ul>
-    </nav> -->
+    <div class="preloader-container js--show">
+      <div class="preloader"></div>
+    </div>
 
-    <div class="calc" ng-controller="CalcCtrl">
-      <form action="">
-        <div class="top">
-          <div class="intro">
-            <h1>Mortgage calculator</h1>
-            <p>Here is a simple online mortgage calculator to help you see what your monthly mortgage payment could be. Adjust the sliders below to see how they impact the monthly payment.</p>            
-          </div>
-          
-          <div class="container calculator">
-            <div class="input-group calculator-amount">
-              <div class="calculator-field">
-                <label for="">Mortgage amount</label>
-                <div class="range-slider slider-amount"></div>  
-                <input type="text" class="input-amount"> 
-              </div>
-            </div>
-            <div class="input-group calculator-intrest">
-              <div class="calculator-field">
-                <label for="">Interest rate</label>
-                <div class="range-slider slider-intrest"></div>  
-                <input type="text" class="input-intrest">
-                <a href="http://www.marketwatch.com/tools/pftools/" target="_blank" class="button">Today's rates</a>
-
-              </div>
-            </div>
-            <div class="input-group calculator-term">
-              <div class="calculator-field">
-                <label for="">Mortgage term (years)</label>
-                <div class="range-slider slider-term"></div>  
-                <input type="text" class="input-term">
-              </div>
-            </div> 
-          </div>       
-        </div>   
-
-        <div class="breakdown">
-          <div class="breakdown-text">
-            Your monthly payment:
-            <span class="breakdown-price">{{breakdown}}</span>          
-          </div>
-          <hr>
-          <p class="totalpaid-text">OR <strong>{{totalPaid}}</strong> at {{termText}} years</p>
-        </div>
-      </form> 
+    <div ng-controller="NewsCtrl">
+      <div id="news">
+        <div id="twitter-feed"></div>
+      </div>      
     </div>
 
     <footer>
       <div class="group container">
         <aside>
-          <p>Purchasing a house is one of the most important financial decisions you will make. Understanding how the amount (principal), interest and mortgage term, work together to calculate your monthly payment, will give you the visibility you need to be confident in your next home purchase.</p>
+          <p>*Please note, this is still in beta. While the calculation is very helpful, it does not include property taxes, insurance or other variables that could factor into your monthly payment. I hope to add some of these features soon.</p>
         </aside>
-        <a href="mailto:jurbank@gmail.com?subject=Mortgage calc issue" class="issues">Report an issue</a>
         <p class="follow"><span>Follow me:</span> <a href="https://twitter.com/johnurbank" target="_blank">@johnurbank</a></p>
+        <a href="mailto:jurbank@gmail.com?subject=Mortgage calc issue" class="issues">Report an issue</a>
       </div>
     </footer>
 
@@ -124,6 +76,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/calc.js"></script>
     <script src="scripts/controllers/news.js"></script>
+    <script src="scripts/controllers/navigation.js"></script>
     <!-- endbuild -->
 </body>
 </html>
